@@ -1,0 +1,144 @@
+body {
+    margin: 0;
+    background-color: black;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+}
+
+.blackTextShadow {
+    color: white;
+    text-shadow: 0.0625rem 0.0625rem 0.125rem black, 0 0 0.6875rem black, 0 0 0.3125rem black;
+}
+
+html,
+body,
+#root,
+#root > div {
+    height: 100%;
+    max-height: 100%;
+    overflow: hidden;
+}
+
+@font-face {
+    font-family: 'AlarmClock';
+    src: url('./fonts/AlarmClock.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* Chrome scrollbar*/
+::-webkit-scrollbar {
+    width: 0.125rem;
+    height: 0.125rem;
+}
+
+.importantScrollbar::-webkit-scrollbar {
+    width: 0.25rem;
+    height: 0.25rem;
+}
+
+::-webkit-scrollbar-track {
+    background: #0000;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #454444ed;
+    border-radius: 0.3125rem;
+}
+
+::-webkit-scrollbar-corner {
+    background: #0000;
+}
+
+@supports not selector(::-webkit-scrollbar) {
+    body {
+        scrollbar-color: rgba(0, 0, 0, 0.5) transparent !important; /* thumb color and track color */
+        scrollbar-width: auto; /* 'auto' | 'thin' | 'none' */
+    }
+}
+
+.preventSelect {
+    -webkit-user-select: none; /* Safari */
+    -ms-user-select: none; /* IE 10 and IE 11 */
+    user-select: none; /* Standard syntax */
+    -webkit-user-drag: none;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+}
+
+.noPointerEvents {
+    pointer-events: none;
+}
+
+.glass {
+    background-color: rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(0.3125rem);
+}
+
+@keyframes inAnimation {
+    0% {
+        transform: scale(0.1);
+        opacity: 0;
+    }
+    60% {
+        transform: scale(1.2);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes outAnimation {
+    20% {
+        transform: scale(1.2);
+    }
+    100% {
+        transform: scale(0);
+        opacity: 0;
+    }
+}
+
+/* Config screen for MultiSig and Guarantee */
+
+.previewContainer {
+    display: flex;
+    flex-direction: row;
+    box-sizing: border-box;
+    max-width: 100%;
+    min-height: 35rem;
+    gap: 0.625rem;
+    flex-wrap: wrap;
+}
+
+.configurator {
+    display: flex;
+    flex-direction: column;
+    flex: auto;
+    gap: 20px;
+    min-width: 30rem;
+}
+
+.contract {
+    flex: 1;
+    min-width: 37.5rem;
+    min-height: 33rem;
+}
+
+/* General utilitu classes */
+
+img {
+    -webkit-user-drag: none;
+    user-drag: none;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+}

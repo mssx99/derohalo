@@ -1,0 +1,170 @@
+<html>
+    <head>
+        <style></style>
+        <script>
+            function createDeroHaloButton(percentage = 100, fallbackUrl, tooltipText = 'Click Me!', action, data) {
+                const FALLBACK_DELAY = 1500;
+                const newSize = 200 * (percentage / 100);
+
+                const button = document.createElement('button');
+                button.className = 'button';
+                button.setAttribute('draggable', false);
+                button.style.position = 'relative';
+                button.style.padding = '0';
+                button.style.width = newSize + 'px';
+                button.style.height = newSize + 'px';
+                button.style.border = `${newSize / 50}px solid #888888`;
+                button.style.outline = 'none';
+                button.style.backgroundColor = '#f4f5f6';
+                button.style.borderRadius = newSize / 5 + 'px';
+                button.style.boxShadow = '-6px -20px 35px #ffffff, -6px -10px 15px #ffffff, -20px 0px 30px #ffffff, 6px 20px 25px rgba(0, 0, 0, 0.2)';
+                button.style.transition = '0.13s ease-in-out';
+                button.style.cursor = 'pointer';
+                button.style.boxSizing = 'border-box';
+                button.style.WebkitTapHighlightColor = 'transparent';
+                button.style.userSelect = 'none';
+                button.setAttribute('title', tooltipText);
+
+                const buttonContent = document.createElement('div');
+                buttonContent.className = 'button__content';
+                buttonContent.style.position = 'relative';
+                buttonContent.style.display = 'flex';
+                buttonContent.style.alignItems = 'center';
+                buttonContent.style.justifyContent = 'center';
+                buttonContent.style.padding = '6px';
+                buttonContent.style.paddingTop = newSize / 10 + 'px';
+                buttonContent.style.width = '100%';
+                buttonContent.style.height = '100%';
+                buttonContent.style.boxShadow = 'inset 0px -8px 0px #dddddd, 0px -8px 0px #f4f5f6';
+                buttonContent.style.borderRadius = newSize / 5 + 'px';
+                buttonContent.style.transition = '0.13s ease-in-out';
+                buttonContent.style.zIndex = '1';
+                buttonContent.style.boxSizing = 'border-box';
+                buttonContent.style.WebkitTapHighlightColor = 'transparent';
+
+                const buttonIcon = document.createElement('div');
+                buttonIcon.className = 'button__icon';
+                buttonIcon.style.position = 'relative';
+                buttonIcon.style.display = 'flex';
+                buttonIcon.style.transform = 'translate3d(0px, -4px, 0px)';
+                buttonIcon.style.gridColumn = '4';
+                buttonIcon.style.alignSelf = 'start';
+                buttonIcon.style.justifySelf = 'end';
+                buttonIcon.style.width = newSize * 0.9 + 'px';
+                buttonIcon.style.height = newSize * 0.75 + 'px';
+                buttonIcon.style.transition = '0.13s ease-in-out';
+
+                const img = document.createElement('img');
+                img.setAttribute('draggable', false);
+                img.src = '/DeroChatButton.png';
+                img.style.width = newSize * 0.9 + 'px';
+                img.style.height = newSize * 0.75 + 'px';
+                img.style.userSelect = 'none';
+
+                buttonIcon.appendChild(img);
+
+                buttonContent.appendChild(buttonIcon);
+
+                button.appendChild(buttonContent);
+
+                button.addEventListener('mousedown', () => {
+                    button.style.boxShadow = 'none';
+                    buttonContent.style.boxShadow = 'none';
+                    buttonIcon.style.transform = 'translate3d(0px, 0px, 0px)';
+                });
+
+                function resetButtonStyle() {
+                    button.style.boxShadow = '-6px -20px 35px #ffffff, -6px -10px 15px #ffffff, -20px 0px 30px #ffffff, 6px 20px 25px rgba(0, 0, 0, 0.2)';
+                    buttonContent.style.boxShadow = 'inset 0px -8px 0px #dddddd, 0px -8px 0px #f4f5f6';
+                    buttonIcon.style.transform = 'translate3d(0px, -4px, 1000px)';
+                }
+
+                button.addEventListener('mouseup', resetButtonStyle);
+                button.addEventListener('mouseleave', resetButtonStyle);
+                button.addEventListener('mouseout', resetButtonStyle);
+
+                const checkProtocolSupported = () =>
+                    new Promise((resolve, reject) => {
+                        var iframe = document.createElement('iframe');
+                        iframe.style.display = 'none';
+                        document.body.appendChild(iframe);
+
+                        var timeoutId = setTimeout(() => {
+                            window.removeEventListener('message', messageListener);
+                            document.body.removeChild(iframe);
+
+                            reject();
+                        }, FALLBACK_DELAY);
+
+                        const messageListener = (event) => {
+                            if (event.data !== 'derohalo supported') return;
+                            clearTimeout(timeoutId);
+                            window.removeEventListener('message', messageListener);
+                            document.body.removeChild(iframe);
+
+                            resolve();
+                        };
+
+                        window.addEventListener('message', messageListener);
+
+                        iframe.src = 'web+derohalo:test';
+                    });
+
+                const clickLink = (url) => {
+                    var link = document.createElement('a');
+                    link.href = url;
+                    link.style.display = 'none';
+                    link.target = '_blank';
+
+                    document.body.appendChild(link);
+                    link.click();
+                    document.body.removeChild(link);
+                };
+
+                button.addEventListener('click', () => {
+                    urlSearchParams = `action=${encodeURIComponent(action)}&data=${encodeURIComponent(JSON.stringify(data))}`;
+                    checkProtocolSupported()
+                        .then(() => {
+                            clickLink(`web+derohalo:${urlSearchParams}`);
+                        })
+                        .catch((e) => {
+                            clickLink(`${fallbackUrl}/?url=${encodeURIComponent(urlSearchParams)}`);
+                        });
+                });
+
+                return button;
+            }
+        </script>
+    </head>
+    <body>
+        <style>
+            button {
+                margin-right: 50px;
+            }
+        </style>
+
+        <script>
+            const customButton = createDeroHaloButton(100, 'https://derohalo.crypto-widget.com', 'Chat with me!', 'OPEN_CHAT', {
+                alias: 'Anonymous',
+                address: 'deto1qyvyeyzrcm2fzf6kyq7egkes2ufgny5xn77y6typhfx9s7w3mvyd5qqynr5hx',
+                defaultMessage: 'from website x referring to post 12345',
+            });
+            document.body.appendChild(customButton);
+
+            const customButton2 = createDeroHaloButton(50, 'https://derohalo.crypto-widget.com', 'Open my MultiSig-Contract for donations', 'OPEN_MULTISIG', {
+                scid: '84cfa2ef0660e15e68de96f223529cfba97aa00d6ef37d19f1684827edb01783',
+            });
+            document.body.appendChild(customButton2);
+
+            const customButton3 = createDeroHaloButton(25, 'https://derohalo.crypto-widget.com', 'Buy my guitar! I will put up collateral...', 'OPEN_GUARANTEE', {
+                scid: 'fafac06b067e70237f87000b1ae9c5893061c42275d543dad81e58da2af828f6',
+            });
+            document.body.appendChild(customButton3);
+
+            const customButton4 = createDeroHaloButton(25, 'https://derohalo.crypto-widget.com', 'I have many more listings than others and cheaper fees!', 'OPEN_WEB', {
+                scid: 'ed154057c0f2fbcf9df69f9b7d6b3cf4402799dd9ac79013a34c709eeb903abe',
+            });
+            document.body.appendChild(customButton4);
+        </script>
+    </body>
+</html>
