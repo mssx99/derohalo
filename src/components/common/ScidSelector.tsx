@@ -31,6 +31,7 @@ interface IScidSelector {
     disabled?: boolean;
     noOptions?: boolean;
     noFavoriteIndicator?: boolean;
+    connectionRequired?: boolean;
 }
 
 const TEXT_SEEMS_TO_BE_A_VALID_SCID = 'This seems to be a valid Scid.';
@@ -72,6 +73,7 @@ const ScidSelector: React.FC<IScidSelector> = ({
     disabled = false,
     noOptions = false,
     noFavoriteIndicator = false,
+    connectionRequired = true,
 }) => {
     const [value, setValue] = useState<ISmartContractDirectoryEntry | string | null>(null);
     const [helperText, setHelperText] = useState<string | null>(null);
@@ -258,7 +260,7 @@ const ScidSelector: React.FC<IScidSelector> = ({
                 freeSolo
                 autoHighlight
                 onChange={handleAutocompleteChange}
-                disabled={!isConnected || disabled}
+                disabled={(connectionRequired && !isConnected) || disabled}
                 readOnly={readOnly}
                 PaperComponent={CustomPaper}
                 renderInput={(params) => (

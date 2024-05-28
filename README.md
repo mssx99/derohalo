@@ -1,6 +1,6 @@
 # ![Derohalo Logo](public/derohaloLogo.png)
 
-This project shows some new usecases for crypto using the Dero network - private by default with homomorphic encryption. It consists out of a
+This project shows some new use-cases for crypto using the Dero network - private by default with homomorphic encryption. It consists out of a
 React Typescript client-side frontend and the Dero-Network as backend. No server-side code used. This allows for running it everywhere, even on
 IPFS anonymously and in a decentralized manner. The project includes the compiled Dero-simulator for Windows and Linux in its compiled state.
 If you want to compile it yourself you need to base it off of [Slixe PR 135 for adding the XSWD Protocol](https://github.com/deroproject/derohe/pull/135) and merge in the fix for the Sender-Field
@@ -57,9 +57,9 @@ The website introduces a new protocol "web+derohalo:" which allows the user to c
 Being a React-app you can also install Derohalo locally in your browser.
 
 Imagine some famous person accepting marriage proposals, but asks for 500 USD in Dero in order to receive the messages. There might be thousands of users willing to send them a picture and attaching
-500 USD or more to it + a voice message. In the case the user defined 500 USD (equivalent in Dero) messages sending more will receive a different background color, the maximum received will have a totally red background and the ones with the minimu would be displayed with a white background, everything in between will be proportionally in tones between white and red. The receiver can filter out the messages by using a slider quickly.
+500 USD or more to it + a voice message. In the case the user defined 500 USD (equivalent in Dero) messages sending more will receive a different background color, the maximum received will have a totally red background and the ones with the minimum would be displayed with a white background, everything in between will be proportionally in tones between white and red. The receiver can filter out the messages by using a slider quickly.
 
-The website owner can as well here earn money by getting commissions for the registration of chat minimums. You can set a Minimum for all and for single accounts, so that your friend pays the minimum necessary to send a transaction, which would be 0.00001 Deros, while others not known people need to send you 10 Deros in order to establish contact. This is a lucrative way to filter spam.
+The website owner can as well here earn money by getting commissions for the registration of chat minimums. You can set a Minimum for all and for single accounts, so that your friend pays the minimum necessary to send a transaction, which would be 0.00001 Deros, while others (unknown people) need to send you 10 Deros in order to establish contact. This is a lucrative way to filter spam.
 
 There are 2 billion Whatsapp users. Some of them complain about loosing their privacy. Famous people, or people like Captain could use this for total privacy and earning some money. Even the IP is not available for eavesdroppers.
 
@@ -91,7 +91,7 @@ or (better)
 
 ## Video
 
-[![DeroHalo - a Dero Showcase](https://i9.ytimg.com/vi_webp/2hN2QOdOkso/mq2.webp?sqp=CLTJzbIG-oaymwEmCMACELQB8quKqQMa8AEB-AH-CYAC0AWKAgwIABABGBEgcigUMA8=&rs=AOn4CLA5uai9vs7IxTfFaF3wkhvTHro5mw)](https://www.youtube.com/watch?v=2hN2QOdOkso)
+[![DeroHalo - a Dero Showcase](https://i9.ytimg.com/vi/2hN2QOdOkso/sddefault.jpg?sqp=CKDs17IG-oaymwEmCIAFEOAD8quKqQMa8AEB-AH-CYAC0AWKAgwIABABGBEgcigUMA8=&rs=AOn4CLAAC2HdT-Zkg5Rq3sKZMLgCER9INw)](https://www.youtube.com/watch?v=2hN2QOdOkso)
 
 ## Disclaimer
 

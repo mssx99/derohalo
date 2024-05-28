@@ -48,7 +48,7 @@ const ContractButtonPanel: React.FC = () => {
     return (
         <>
             <FormElement label="SmartContract-ID">
-                <ScidSelector key={type} value={data.scid} onChange={handleChange} type={type} />
+                <ScidSelector key={type} value={data.scid} onChange={handleChange} type={type} connectionRequired={false} />
             </FormElement>
         </>
     );
