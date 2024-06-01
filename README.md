@@ -91,7 +91,7 @@ or (better)
 
 ## Video
 
-[![DeroHalo - a Dero Showcase](https://i9.ytimg.com/vi/2hN2QOdOkso/sddefault.jpg?sqp=CKDs17IG-oaymwEmCIAFEOAD8quKqQMa8AEB-AH-CYAC0AWKAgwIABABGBEgcigUMA8=&rs=AOn4CLAAC2HdT-Zkg5Rq3sKZMLgCER9INw)](https://www.youtube.com/watch?v=2hN2QOdOkso)
+[![DeroHalo - a Dero Showcase](https://img.youtube.com/vi/2hN2QOdOkso/sddefault.jpg)](https://www.youtube.com/watch?v=2hN2QOdOkso)
 
 ## Disclaimer
 

@@ -17,14 +17,11 @@
         "@testing-library/jest-dom": "^5.14.1",
         "@testing-library/react": "^13.0.0",
         "@testing-library/user-event": "^13.2.1",
-        "@types/underscore": "^1.11.13",
         "await-to-js": "^3.0.0",
         "compressorjs": "^1.2.1",
-        "d": "^1.0.1",
         "dayjs": "^1.11.10",
         "dero-xswd-api": "0.8.3-d",
         "duration": "^0.2.2",
-        "expo-sqlite": "11.6.0",
         "idb": "^8.0.0",
         "js-sha3": "^0.9.3",
         "nanoid": "^4.0.2",
@@ -79,7 +76,8 @@
         "@types/react-redux": "^7.1.26",
         "@types/redux": "^3.6.0",
         "@types/redux-thunk": "^2.1.0",
-        "@types/styled-components": "^5.1.27"
+        "@types/styled-components": "^5.1.27",
+        "@types/underscore": "^1.11.13"
     },
     "packageManager": "yarn@4.0.1"
 }
