@@ -59,6 +59,7 @@ export const useIndexedDb = () => {
         };
 
         loadDB().then(async () => {
+            if (!active) return;
             updateWallets();
             updateSmartContracts();
         });
