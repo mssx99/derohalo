@@ -7,8 +7,6 @@ interface IWithdrawStart {
     onChange: (blocks: Uint64) => void;
 }
 
-const getHelperText = (blocks: number) => {};
-
 const WithdrawStart: React.FC<IWithdrawStart> = ({ value, readOnly, onChange }) => {
     const [blocks, setBlocks] = useState(0);
 

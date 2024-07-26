@@ -243,8 +243,8 @@ const ScidSelector: React.FC<IScidSelector> = ({
                 }}
                 isOptionEqualToValue={(option, value) => option?.scid === value?.scid}
                 renderOption={(props, option) => (
-                    <li {...props}>
-                        <Grid key={option.scid} container alignItems="center" spacing={1}>
+                    <li {...props} key={option.scid}>
+                        <Grid container alignItems="center" spacing={1}>
                             <Grid xs={0.6} item>
                                 <FavoritedIcon value={option} disableRipple readOnly />
                             </Grid>

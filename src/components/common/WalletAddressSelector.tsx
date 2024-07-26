@@ -256,8 +256,8 @@ const WalletAddressSelector: React.FC<IWalletAddressSelector> = ({
             }}
             isOptionEqualToValue={(option, value) => option?.address === value?.address}
             renderOption={(props, option) => (
-                <li {...props}>
-                    <Grid key={option.address} container alignItems="center" spacing={1}>
+                <li {...props} key={option.address}>
+                    <Grid container alignItems="center" spacing={1}>
                         <Grid xs={0.6} item>
                             <FavoritedIcon value={option} disableRipple readOnly />
                         </Grid>

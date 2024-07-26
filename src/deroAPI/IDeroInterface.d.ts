@@ -110,9 +110,9 @@ interface ITransferDestination {
 }
 
 interface IRpc_Arguments {
-    name: DVMString;
+    name: string;
     datatype: 'S' | 'U' | 'H';
-    value: DVMString | number;
+    value: string | number;
 }
 
 interface ISc_Description {
@@ -154,7 +154,7 @@ interface ITransferEntry {
     payload_rpc: {
         name: string;
         datatype: 'S' | 'U';
-        value: DVMString | Uint64;
+        value: string | Uint64;
     }[];
     sender: string;
     dstport: number;
@@ -168,14 +168,13 @@ interface IGetTransactionListParams {
     out?: boolean;
     min_height?: Uint64;
     max_height?: Uint64;
-    sender?: DVMString;
-    receiver?: DVMString;
+    sender?: string;
+    receiver?: string;
     dstport?: Uint64;
     srcport?: Uint64;
 }
 
 type Uint64 = number;
-type DVMString = string;
 type Hash = string;
 
 interface IDeroTransaction {
