@@ -1,12 +1,9 @@
 import React, { useEffect, useRef, useCallback, useState, useId } from 'react';
-import Button from '@mui/material/Button';
 
 import Dialog, { DialogProps } from '@mui/material/Dialog';
-import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogTitle from '@mui/material/DialogTitle';
 import { TransitionForDialog } from 'components/common/Transitions';
-import { TransitionProps } from '@mui/material/transitions';
 import { DialogCloseButton } from 'components/Main/Dialogs';
 
 import store, { RootState } from 'store';
@@ -14,7 +11,6 @@ import { useSelector } from 'react-redux';
 import { mainStateActions } from 'store/reducers/mainStateReducer';
 
 import Form, { FormElement } from 'components/common/Form';
-import { useCheckProtocolHandler } from 'helpers/ProtocolHelper';
 import ActionSelector from './ActionSelector';
 import FallbackUrl from './FallbackUrl';
 import TooltipText from './TooltipText';

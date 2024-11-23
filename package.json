@@ -79,5 +79,5 @@
         "@types/styled-components": "^5.1.27",
         "@types/underscore": "^1.11.13"
     },
-    "packageManager": "yarn@4.0.1"
+    "packageManager": "yarn@4.5.2"
 }
