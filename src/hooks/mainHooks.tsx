@@ -1,15 +1,14 @@
-import { TYPING_DELAY, WALLET_BALANCE_UPDATE_INTERVAL, XSWD_DEFAULTPORT } from 'Constants';
+import { XSWD_DEFAULTPORT } from 'Constants';
 import React, { useEffect, useState, useRef, useReducer, useCallback } from 'react';
 import { useSelector } from 'react-redux';
 import store, { RootState } from 'store';
 import { mainStateActions } from 'store/reducers/mainStateReducer';
-import { doConnect, updateWalletBalance, useBusy, useIsConnected } from './deroHooks';
+import { doConnect, useBusy, useIsConnected } from './deroHooks';
 import { setDeroPrice, updateQuote } from 'helpers/ExchangeHelper';
 import { useIndexedDb } from 'browserStorage/indexedDb';
 import { setDefaultContracts } from 'helpers/ContractHelper';
 import { prepareChats } from 'helpers/ChatHelper';
 import { ProtocolHelper } from 'helpers/ProtocolHelper';
-import LocalStorage from 'browserStorage/localStorage';
 import { openWelcomeScreen } from 'components/Main/WelcomeDialog';
 
 export const setCurrentTab = (newTab: string) => {
@@ -116,8 +115,15 @@ export const getXswdPort = () => {
     const searchParams = new URLSearchParams(window.location.search);
 
     const xswdportString = searchParams.get('xswdport');
+    const url = searchParams.get('url');
+
     let xswdport = XSWD_DEFAULTPORT;
-    if (xswdportString) {
+    if (url) {
+        const haloButtonUrlInvoke = JSON.parse(url) as IHaloButtonUrlInvoke;
+        if (haloButtonUrlInvoke.xswdport) {
+            xswdport = haloButtonUrlInvoke.xswdport;
+        }
+    } else if (xswdportString) {
         xswdport = parseInt(xswdportString);
         if (isNaN(xswdport)) xswdport = XSWD_DEFAULTPORT;
     }

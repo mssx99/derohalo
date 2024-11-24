@@ -21,4 +21,5 @@ interface IHaloButtonScidActionParameters {
 interface IHaloButtonUrlInvoke {
     action: HaloButtonActionType;
     data: IHaloButtonChatActionParameters | IHaloButtonScidActionParameters;
+    xswdport?: number;
 }
