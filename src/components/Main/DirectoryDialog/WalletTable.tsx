@@ -1,6 +1,5 @@
 import React, { ReactElement, JSXElementConstructor, useRef, useState, useEffect, useCallback } from 'react';
 
-import Box from '@mui/material/Box';
 import {
     DataGrid,
     useGridApiRef,

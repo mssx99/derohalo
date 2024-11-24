@@ -3,6 +3,7 @@ import Accordion from '@mui/material/Accordion';
 import AccordionDetails from '@mui/material/AccordionDetails';
 import AccordionSummary from '@mui/material/AccordionSummary';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import Tooltip from '@mui/material/Tooltip';
 
 import { styled } from '@mui/material/styles';
 import { setCurrentChat, useChats, useCurrentChatIndex } from 'hooks/chatHooks';
@@ -57,6 +58,13 @@ const TitleContainer = styled('div')`
 
 const TitleRow = styled('div')`
     position: relative;
+
+    & div {
+        max-width: 50%;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+    }
 `;
 
 const EarnedTag = styled(DeroAmount)`
@@ -97,7 +105,9 @@ const Title: React.FC<ITitle> = ({ chat }) => {
     return (
         <TitleContainer>
             <TitleRow>
-                {alias}
+                <Tooltip title={alias} followCursor>
+                    <div>{alias}</div>
+                </Tooltip>
                 {chat.totalReceived > chat.totalSent ? <EarnedTag value={chat.totalReceived - chat.totalSent} preferUsd /> : <LostTag value={chat.totalReceived - chat.totalSent} preferUsd />}
             </TitleRow>
             <AddressRow>{address}</AddressRow>
