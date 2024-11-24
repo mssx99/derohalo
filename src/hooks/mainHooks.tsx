@@ -1,4 +1,4 @@
-import { XSWD_DEFAULTPORT } from 'Constants';
+import { DEROHALO_PROTOCOL, XSWD_DEFAULTPORT } from 'Constants';
 import React, { useEffect, useState, useRef, useReducer, useCallback } from 'react';
 import { useSelector } from 'react-redux';
 import store, { RootState } from 'store';
@@ -118,12 +118,28 @@ export const getXswdPort = () => {
     const url = searchParams.get('url');
 
     let xswdport = XSWD_DEFAULTPORT;
+
     if (url) {
-        const haloButtonUrlInvoke = JSON.parse(url) as IHaloButtonUrlInvoke;
-        if (haloButtonUrlInvoke.xswdport) {
-            xswdport = haloButtonUrlInvoke.xswdport;
+        const params: Record<string, string> = {};
+
+        let regex = new RegExp(`^web\\+${DEROHALO_PROTOCOL}:`);
+        const givenUrl = decodeURIComponent(url).replace(regex, '');
+
+        const pairs = givenUrl.split('&');
+
+        pairs.forEach((pair) => {
+            const [key, value] = pair.split('=');
+            params[key] = decodeURIComponent(value || '');
+        });
+
+        if (params['xswdport']) {
+            xswdport = parseInt(params['xswdport']);
+            if (isNaN(xswdport)) xswdport = XSWD_DEFAULTPORT;
+            else return xswdport;
         }
-    } else if (xswdportString) {
+    }
+
+    if (xswdportString) {
         xswdport = parseInt(xswdportString);
         if (isNaN(xswdport)) xswdport = XSWD_DEFAULTPORT;
     }
