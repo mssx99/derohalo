@@ -2,9 +2,13 @@ import store, { RootState } from 'store';
 import { useSelector } from 'react-redux';
 import { mainStateActions } from 'store/reducers/mainStateReducer';
 
-const TRADEOGRE_URL = 'https://corsproxy.io/?' + encodeURIComponent('https://tradeogre.com/api/v1/ticker/DERO-USDT');
-const KUCOIN_URL = 'https://corsproxy.io/?' + encodeURIComponent('https://api.kucoin.com/api/v1/market/stats?symbol=DERO-USDT');
-const COINEX_URL = 'https://corsproxy.io/?' + encodeURIComponent('https://api.coinex.com/v1/market/ticker?market=derousdt');
+// const TRADEOGRE_URL = 'https://corsproxy.io/?' + encodeURIComponent('https://tradeogre.com/api/v1/ticker/DERO-USDT');
+// const KUCOIN_URL = 'https://corsproxy.io/?' + encodeURIComponent('https://api.kucoin.com/api/v1/market/stats?symbol=DERO-USDT');
+// const COINEX_URL = 'https://corsproxy.io/?' + encodeURIComponent('https://api.coinex.com/v1/market/ticker?market=derousdt');
+
+const TRADEOGRE_URL = 'https://api.allorigins.win/raw?url=' + 'https://tradeogre.com/api/v1/ticker/DERO-USDT';
+const KUCOIN_URL = 'https://api.allorigins.win/raw?url=' + 'https://api.kucoin.com/api/v1/market/stats?symbol=DERO-USDT';
+const COINEX_URL = 'https://api.allorigins.win/raw?url=' + 'https://api.coinex.com/v1/market/ticker?market=derousdt';
 
 export const getQuoteTradeOgre = async () => {
     return await fetch(TRADEOGRE_URL)

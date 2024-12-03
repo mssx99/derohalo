@@ -64,10 +64,16 @@ const Step1: React.FC<IDialogPortal> = ({ contentId, actionsId }) => {
         }
 
         const generateImages = async () => {
-            const compressedBlob = await compressImage(blob, options);
-            setCompressedBlob(compressedBlob);
-            const compressedBase64 = await fileOrBlobToBase64(compressedBlob);
-            setCompressedBase64(compressedBase64);
+            if (options.mimeType === 'image/png' && blob.type === 'image/png') {
+                setCompressedBlob(blob);
+                const compressedBase64 = `data:${blob.type};base64,${await fileOrBlobToBase64(blob)}`;
+                setCompressedBase64(compressedBase64);
+            } else {
+                const compressedBlob = await compressImage(blob, options);
+                setCompressedBlob(compressedBlob);
+                const compressedBase64 = `data:${compressedBlob.type};base64,${await fileOrBlobToBase64(compressedBlob)}`;
+                setCompressedBase64(compressedBase64);
+            }
 
             const compressedThumbBlob = await compressImage(blob, DEFAULT_THUMB_OPTIONS);
             setCompressedThumbBlob(compressedThumbBlob);
