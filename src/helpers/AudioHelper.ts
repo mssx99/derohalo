@@ -1,5 +1,6 @@
 import { useAudioConfiguratorStore } from 'components/Chat/dialogs/AudioConfiguratorDialog';
 import { useEffect, useRef } from 'react';
+import type { Dispatch, SetStateAction } from 'react';
 import { nanoid } from 'nanoid';
 import { addSnackbar } from 'components/screen/Snackbars';
 import { AUDIO_CHAT_QUALITY, MAX_AUDIO_SECONDS, MESSAGE_SEVERITY } from 'Constants';
@@ -144,8 +145,8 @@ export const getAudioBufferFromBlob = async (audioContext: AudioContext, audioBl
 export const convertAudioBufferToWebM = (
     audioContext: AudioContext,
     audioBuffer: AudioBuffer,
-    setProgress?: React.Dispatch<React.SetStateAction<number>>,
-    setCancel?: React.Dispatch<(() => void) | null>,
+    setProgress?: Dispatch<SetStateAction<number>>,
+    setCancel?: Dispatch<(() => void) | null>,
     audioBitsPerSecond?: number
 ): Promise<Blob> => {
     return new Promise((resolve, reject) => {

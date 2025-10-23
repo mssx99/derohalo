@@ -1,4 +1,3 @@
-import React from 'react';
 import { createAuthorizationGroup, createWallet } from 'helpers/ContractHelper';
 import { useSelector } from 'react-redux';
 import store, { RootState } from 'store';

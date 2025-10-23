@@ -1,5 +1,6 @@
 import { DEROHALO_PROTOCOL, XSWD_DEFAULTPORT } from 'Constants';
-import React, { useEffect, useState, useRef, useReducer, useCallback } from 'react';
+import { useEffect, useState, useRef, useReducer, useCallback } from 'react';
+import type { RefObject } from 'react';
 import { useSelector } from 'react-redux';
 import store, { RootState } from 'store';
 import { mainStateActions } from 'store/reducers/mainStateReducer';
@@ -186,7 +187,7 @@ export const isShowContractVerificationAlways = () => {
     return store.getState().mainState.showContractVerificationAlways;
 };
 
-export const useRunIfVisible = (divRef: React.RefObject<HTMLDivElement>, callback: () => void, updateInterval: number) => {
+export const useRunIfVisible = (divRef: RefObject<HTMLDivElement>, callback: () => void, updateInterval: number) => {
     useEffect(() => {
         let interval: number;
         const observer = new IntersectionObserver((entries, observer) => {

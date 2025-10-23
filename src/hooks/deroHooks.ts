@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import store, { RootState } from 'store';
 import { useSelector } from 'react-redux';
 import { mainStateActions } from 'store/reducers/mainStateReducer';

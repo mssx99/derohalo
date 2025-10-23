@@ -1,4 +1,3 @@
-import React, { Dispatch, SetStateAction } from 'react';
 import DeroBridgeApi from 'libs/DeroBridgeApi';
 import to from 'await-to-js';
 import { hex_to_ascii } from 'helpers/StringHelper';

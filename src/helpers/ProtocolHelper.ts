@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { DEROHALO_PROTOCOL, FALLBACK_DELAY } from 'Constants';
 import { getPendingAction, setPendingAction } from 'hooks/mainHooks';
 import { goToChat } from './ChatHelper';

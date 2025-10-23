@@ -1,8 +1,8 @@
-import React from 'react';
+import type { RefObject } from 'react';
 import { getApproverDraggableId, getInvolvedPartyDraggableId } from './MultiSig/MultiSigSmartContractHelper';
 import { getStageDraggableApproveButtonId, getStageDraggableSpanId } from './Guarantee/GuaranteeSmartContractHelper';
 
-export const getArrowStartEndMultiSig = (contract: IMultiSigContract, approver: IApprover, xRefs: Map<string, React.RefObject<HTMLDivElement>>): IArrowCoords | null => {
+export const getArrowStartEndMultiSig = (contract: IMultiSigContract, approver: IApprover, xRefs: Map<string, RefObject<HTMLDivElement>>): IArrowCoords | null => {
     if (!contract || !approver?.wallet || !xRefs) return null;
 
     const involvedParty = contract.involvedParties.find((wallet) => wallet.id === approver.wallet.id);
@@ -14,7 +14,7 @@ export const getArrowStartEndMultiSig = (contract: IMultiSigContract, approver: 
 
     const startDraggableId = getInvolvedPartyDraggableId(involvedParty);
     const cloneStartDraggableId = `clone_${startDraggableId}`;
-    let clone: React.RefObject<HTMLDivElement> | undefined;
+    let clone: RefObject<HTMLDivElement> | undefined;
     if (xRefs.has(cloneStartDraggableId)) {
         clone = xRefs.get(cloneStartDraggableId);
     }
@@ -27,7 +27,7 @@ export const getArrowStartEndMultiSig = (contract: IMultiSigContract, approver: 
     return { start, end, color } as IArrowCoords;
 };
 
-export const getArrowStartEndGuarantee = (stage: IStage, dependantStage: IStage, xRefs: Map<string, React.RefObject<HTMLDivElement>>): IArrowCoords | null => {
+export const getArrowStartEndGuarantee = (stage: IStage, dependantStage: IStage, xRefs: Map<string, RefObject<HTMLDivElement>>): IArrowCoords | null => {
     if (dependantStage.offsetTo && dependantStage.offsetTo > 0) {
         const startDraggableId = getStageDraggableApproveButtonId(stage);
         const endDraggableId = getStageDraggableSpanId(dependantStage);

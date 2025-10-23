@@ -3,7 +3,6 @@ import { AuthorizationError, EmptyResponseError, EntryNotFoundError, NotIncluded
 import { wait } from 'helpers/Helper';
 import { hex_to_ascii } from 'helpers/StringHelper';
 import { setTopoheight, setWalletBalance } from 'hooks/deroHooks';
-import React, { Dispatch, SetStateAction } from 'react';
 import store from 'store';
 import { Api, AppInfo, generateAppId } from 'dero-xswd-api';
 

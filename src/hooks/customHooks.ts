@@ -1,6 +1,6 @@
 import { MESSAGE_SEVERITY } from 'Constants';
 import { addSnackbar } from 'components/screen/Snackbars';
-import React, { useState, useEffect, useRef, useCallback, RefObject } from 'react';
+import { useState, useEffect, useRef, useCallback, RefObject } from 'react';
 import _ from 'underscore';
 
 const useAnimation = (delay = 1000) => {

@@ -1,5 +1,5 @@
 import { IS_DEBUG } from 'Constants';
-import React, { useState, useEffect, useCallback } from 'react';
+import { useEffect } from 'react';
 import { openDB, deleteDB, IDBPDatabase, IDBPObjectStore, DBSchema } from 'idb';
 
 import store from 'store';
